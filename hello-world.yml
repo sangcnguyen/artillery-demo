@@ -1,0 +1,19 @@
+config:
+  target: 'wss://echo.websocket.org/'
+  phases:
+    - duration: 20
+      arrivalRate: 10
+      name: 'Warm up'
+    - duration: 40
+      arrivalRate: 10
+      name: 'Ramp up'
+    - duration: 50
+      arrivalRate: 20
+      name: 'High load'
+scenarios:
+  - engine: 'ws'
+    flow:
+      - send: "hello "
+      - think: 1
+      - send: "world"
+
